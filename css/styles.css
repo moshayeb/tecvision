@@ -1,0 +1,132 @@
+/**
+ * TecVision — ألوان العلامة وتنسيقات عامة
+ * يعمل مع Tailwind (CDN) عبر متغيرات CSS في tailwind.config
+ */
+
+:root {
+  --tec-orange: #f58220;
+  --tec-charcoal: #3c3c3b;
+  --tec-muted: #6b6b6b;
+  --tec-line: #e8e8e8;
+  --tec-surface: #f7f7f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* تخطي إلى المحتوى — إمكانية الوصول */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* نص مخفي بصرياً — يضمن عدم ظهوره إن لم يُولَّد فئة Tailwind sr-only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  z-index: 9999;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  font-weight: 700;
+  color: #fff;
+  background: var(--tec-orange);
+  border-radius: 0.375rem;
+  outline: 2px solid var(--tec-charcoal);
+  outline-offset: 2px;
+}
+
+/* تركيز للوحة المفاتيح — الرأس/التذييل يستخدمان حلقة Tailwind */
+a:focus-visible {
+  outline: 2px solid var(--tec-orange);
+  outline-offset: 2px;
+}
+
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--tec-orange);
+  outline-offset: 2px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* تظليل النص */
+::selection {
+  background-color: rgb(245 130 32 / 0.25);
+}
+
+/* هيكل الرأس والتذييل (يمكن توسيعه دون تكرار فئات Tailwind) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.footer-social:focus-visible {
+  outline: 2px solid var(--tec-orange);
+  outline-offset: 2px;
+}
+
+/* ——— هيرو (بانر بعرض الشاشة) ——— */
+.hero-banner {
+  box-shadow: inset 0 -1px 0 rgb(26 47 74 / 0.06);
+}
+
+.hero-banner-media img {
+  display: block;
+}
+
+/* تغميق موحّد فوق صورة البانر (أسلوب عرض مركزي مثل مواقع الشركات العربية البسيطة) */
+.hero-banner-overlay {
+  pointer-events: none;
+}
+
+.hero-overlay-eco {
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.45) 0%,
+    rgb(15 23 42 / 0.72) 50%,
+    rgb(0 0 0 / 0.55) 100%
+  );
+}
+
+.hero-title {
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-primary {
+    transition: none;
+  }
+}
